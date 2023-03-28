@@ -1,0 +1,30 @@
+package training
+
+// import (
+// 	"fmt"
+// 	"time"
+// )
+
+// func main() {
+// 	go spinner(100 * time.Millisecond)
+// 	const n = 45
+// 	fibN := fib(n)
+// 	fmt.Printf("\rFibonacci(%d) = %d\n", n, fibN) // 执行完这行，主函数返回，所有的goroutine都被打断
+// }
+
+// func spinner(delay time.Duration) {
+// 	for {
+// 		for _, v := range `-\|/` {
+// 			fmt.Printf("\r%c", v) // 回车符，光标回到旧行的开头
+// 			// fmt.Printf("\n%c", v) // 换行符，光标在新行的开头
+// 			time.Sleep(delay)
+// 		}
+// 	}
+// }
+
+// func fib(x int) int {
+// 	if x < 2 {
+// 		return x
+// 	}
+// 	return fib(x-1) + fib(x-2)
+// }
