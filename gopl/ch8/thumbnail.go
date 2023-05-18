@@ -1,17 +1,17 @@
-package training
+package main
 
 import (
+	"go-learn/utils"
 	"log"
-	"zxw-go/common"
 )
 
 func MakeThumbnails(filenames []string) {
 	for _, f := range filenames {
-		if _, err := common.ImageFile(f); err != nil {
+		if _, err := utils.ImageFile(f); err != nil {
 			log.Println(err)
 		}
 
-		// go common.ImageFile(f)
+		go utils.ImageFile(f)
 	}
 }
 
@@ -19,7 +19,7 @@ func MakeThumbnails2(filenames []string) {
 	ch := make(chan struct{})
 	for _, f := range filenames {
 		go func(t string) {
-			common.ImageFile(t)
+			utils.ImageFile(t)
 			ch <- struct{}{}
 		}(f)
 	}
@@ -33,7 +33,7 @@ func MakeThumbnails3(filenames []string) error {
 	errors := make(chan error)
 	for _, f := range filenames {
 		go func(f string) {
-			if _, err := common.ImageFile(f); err != nil {
+			if _, err := utils.ImageFile(f); err != nil {
 				errors <- err
 			}
 		}(f)
@@ -58,7 +58,7 @@ func MakeThumbnails4(filenames []string) (thumbfiles []string, err error) {
 	for _, f := range filenames {
 		go func(f string) {
 			var it item
-			it.thumbfile, it.err = common.ImageFile(f)
+			it.thumbfile, it.err = utils.ImageFile(f)
 			ch <- it
 		}(f)
 	}

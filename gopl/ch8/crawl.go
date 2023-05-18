@@ -1,9 +1,9 @@
-package training
+package main
 
 import (
 	"fmt"
+	"go-learn/ch5"
 	"log"
-	"zxw-go/ch5"
 )
 
 func Crawl(url string) []string {

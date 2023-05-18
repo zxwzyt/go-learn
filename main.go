@@ -1,6 +1,6 @@
 package main
 
-import "zxw-go/training"
+import "go-learn/training"
 
 // func main() {
 // 	images := []string{
