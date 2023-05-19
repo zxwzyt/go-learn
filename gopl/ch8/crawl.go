@@ -1,8 +1,8 @@
-package main
+package ch8
 
 import (
 	"fmt"
-	"go-learn/ch5"
+	"go-learn/gopl/ch5"
 	"log"
 )
 

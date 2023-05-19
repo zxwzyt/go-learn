@@ -8,8 +8,8 @@ import (
 	"time"
 )
 
-// ===================并发的clock服务====================
-func clock() {
+// ===================没有并发的clock服务====================
+func main() {
 	listener, err := net.Listen("tcp", "localhost:8000")
 	if err != nil {
 		log.Fatal(err)

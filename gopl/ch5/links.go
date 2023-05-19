@@ -1,10 +1,3 @@
-// Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
-// License: https://creativeutilss.org/licenses/by-nc-sa/4.0/
-
-// See page 138.
-//!+Extract
-
-// Package links provides a link-extraction function.
 package ch5
 
 import (
