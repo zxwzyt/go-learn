@@ -270,3 +270,42 @@ func (b *Buffer) UnreadRune() error {
 	b.lastRead = opInvalid
 	return nil
 }
+
+var errUnreadByte = errors.New("bytes.Buffer: UnreadByte: previous operation was not a successful read")
+
+func (b *Buffer) UnreadByte() error {
+	if b.lastRead == opInvalid {
+		return errUnreadByte
+	}
+	b.lastRead = opInvalid
+	if b.off > 0 {
+		b.off--
+	}
+	return nil
+}
+
+func (b *Buffer) ReadBytes(delim byte) (line []byte, err error) {
+	slice, err := b.readSlice(delim)
+	line = append(line, slice...)
+	return line, err
+}
+
+func (b *Buffer) readSlice(delim byte) (line []byte, err error) {
+	i := IndexByte(b.buf[b.off:], delim)
+	end := b.off + i + 1
+	if i < 0 {
+		end = len(b.buf)
+		err = io.EOF
+	}
+	line = b.buf[b.off:end]
+	b.off = end
+	b.lastRead = opRead
+	return line, err
+}
+
+func (b *Buffer) ReadString(delim byte) (line string, err error) {
+	slice, err := b.readSlice(delim)
+	return string(slice), err
+}
+
+func NewBuffer(buf []byte) *Buffer { return &Buffer{buf: buf} }
