@@ -1,4 +1,4 @@
-package main
+package designer
 
 import "fmt"
 
@@ -113,7 +113,7 @@ func (d *Director) buildHouse() House {
 	return d.builder.getHouse()
 }
 
-func main() {
+func RunBuild() {
 	normalBuilder := getBuilder("normal")
 	iglooBuilder := getBuilder("igloo")
 
@@ -130,5 +130,4 @@ func main() {
 	fmt.Printf("\nIgloo house door type: %s\n", iglooHouse.doorType)
 	fmt.Printf("nIgloo house window type: %s\n", iglooHouse.windowType)
 	fmt.Printf("nIgloo house num type: %d\n", iglooHouse.floor)
-
 }
