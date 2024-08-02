@@ -1,8 +1,9 @@
+// 建造者模式
 package designer
 
 import "fmt"
 
-//产品
+// 产品
 type House struct {
 	windowType string
 	doorType   string

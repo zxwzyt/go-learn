@@ -1,3 +1,4 @@
+// 原型模式
 package designer
 
 import "fmt"

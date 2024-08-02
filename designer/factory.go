@@ -1,3 +1,4 @@
+// 工厂模式
 package designer
 
 import "fmt"
