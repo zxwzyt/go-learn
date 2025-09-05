@@ -1,5 +1,7 @@
 package main
 
+import "go-learn/library/sync"
+
 func main() {
 	//==================== 创建型模式
 	// designer.RunFactory() // 简单工厂模式
@@ -16,4 +18,5 @@ func main() {
 	// designer.RunIterator() // 迭代器模式
 	// designer.RunObserver() // 观察者模式
 	// designer.RunMediator() // 中介模式
+	sync.TestRWMutex() // 测试互斥锁
 }
